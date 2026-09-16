@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8ed" />
+    <title>あしたのクエスト</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="あしたのクエスト ホーム">
+          <span class="brand-mark">★</span>
+          <span>あしたの<br /><strong>クエスト</strong></span>
+        </a>
+        <button class="icon-button" id="resetButton" type="button" title="今日の進捗をリセット" aria-label="今日の進捗をリセット">↻</button>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">TOMORROW'S MISSION</p>
+          <h1>あしたの準備を<br /><span>冒険</span>にしよう！</h1>
+          <p class="hero-message" id="heroMessage">ひとつずつで大丈夫。きみならできるよ。</p>
+        </div>
+        <div class="mascot" aria-hidden="true">
+          <div class="mascot-cloud cloud-one"></div>
+          <div class="mascot-cloud cloud-two"></div>
+          <div class="mascot-body">🎒</div>
+          <span class="sparkle sparkle-one">✦</span>
+          <span class="sparkle sparkle-two">✦</span>
+        </div>
+      </section>
+
+      <section class="progress-panel" aria-label="今日の進み具合">
+        <div class="progress-heading">
+          <div>
+            <p class="section-label">TODAY'S PROGRESS</p>
+            <h2>今日のクエスト</h2>
+          </div>
+          <div class="progress-count"><span id="completedCount">0</span><small>/ <span id="totalCount">0</span></small></div>
+        </div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <div class="progress-footer">
+          <span id="progressText">まずはひとつ選んでみよう</span>
+          <span class="xp-pill">⚡ <b id="xpValue">0</b> XP</span>
+        </div>
+      </section>
+
+      <div class="date-row">
+        <button class="date-arrow" type="button" aria-label="前の日">‹</button>
+        <div class="date-display"><span id="dateLabel">9月16日（水）</span><span class="today-label">あしたの準備</span></div>
+        <button class="date-arrow" type="button" aria-label="次の日">›</button>
+      </div>
+
+      <section class="quest-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">ITEM QUESTS</p>
+            <h2>持ち物をそろえよう</h2>
+          </div>
+          <button class="add-button" id="addButton" type="button"><span>＋</span> 追加</button>
+        </div>
+        <div class="quest-list" id="questList"></div>
+      </section>
+
+      <section class="level-card">
+        <div class="level-icon">🏆</div>
+        <div class="level-copy"><p>ぼうけんレベル</p><strong>レベル <span id="levelValue">1</span></strong></div>
+        <div class="level-progress"><div class="mini-track"><span id="levelBar"></span></div><small><span id="levelXp">0</span> / 100 XP</small></div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop" id="modal" hidden>
+      <form class="add-modal" id="addForm">
+        <button class="modal-close" id="closeModal" type="button" aria-label="閉じる">×</button>
+        <p class="section-label">NEW QUEST</p>
+        <h2>持ち物を追加</h2>
+        <label for="itemName">持ち物の名前</label>
+        <input id="itemName" name="itemName" maxlength="24" placeholder="例：水とう" required />
+        <label for="itemIcon">アイコン</label>
+        <select id="itemIcon" name="itemIcon">
+          <option value="🎒">🎒 かばん</option>
+          <option value="✏️">✏️ 文房具</option>
+          <option value="📘">📘 本</option>
+          <option value="👕">👕 服</option>
+          <option value="🍱">🍱 おべんとう</option>
+        </select>
+        <button class="primary-button" type="submit">クエストに追加</button>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
